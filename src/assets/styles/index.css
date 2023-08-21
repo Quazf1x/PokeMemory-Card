@@ -1,0 +1,24 @@
+:root {
+  --red: #bf362f;
+  --white: #fff;
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,body {
+  font-family: "Lato", sans-serif;
+  height: 100svh;
+}
+
+#root {
+  background: #00000090 url('src/assets/img/bg.png') no-repeat;
+  background-size: cover;
+  background-position: 50% 85%;
+  background-blend-mode: darken;
+  background-attachment: fixed;
+  height: 100%;
+}
