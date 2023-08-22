@@ -1,9 +1,7 @@
 header {
   align-items: center;
   background-color: var(--red);
-  color: var(--white);
   display: flex;
-  font-family: 'Press Start 2P', cursive;
   justify-content: space-between;
   height: 3rem;
   padding: 0 1rem;

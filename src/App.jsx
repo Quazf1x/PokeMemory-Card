@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import Header from './assets/components/Header'
+import { useState } from 'react';
+import Header from './assets/components/Header';
+import MainScreen from './assets/components/MainScreen';
 
 function App() {
   const [currentScore, changeCurrentScore] = useState(0);
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
      <Header currentScore={currentScore} currentHigh={currentHigh}/>
+      <MainScreen/>
     </>
   )
 }
