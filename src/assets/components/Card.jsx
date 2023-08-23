@@ -1,20 +1,32 @@
 import { useState, useEffect } from 'react';
 import { getPokemon } from "../../pokemonFetch";
+import loadingGif from '../img/loading.gif';
 
 function Card() {
-  const [image, setImage] = useState('..');
+  const [image, setImage] = useState(loadingGif);
+  const [name, changeName] = useState('Loading...');
+
+  const changePokemonInfo = (name, image) => {
+    changeName(name);
+    setImage(image);
+  }
 
   useEffect(() => {
-    async function fun() {
-      const data = await getPokemon(347);
-      setImage(data.image);
+    async function setPokemonData() {
+      const data = await getPokemon(665);
+      changePokemonInfo(data.name, data.image);
     }
-    fun();
-  })
+    setPokemonData();
+
+    return () => {
+      changePokemonInfo('Loading...', loadingGif);
+    }
+    
+  }, [])
 
   return (
     <div className="card">
-      <h2>2</h2>
+      <h2>{name}</h2>
       <img src={image}></img>
     </div>
   )

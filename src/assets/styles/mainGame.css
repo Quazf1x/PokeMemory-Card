@@ -23,6 +23,7 @@
   align-items: center;
   justify-items: center;
   grid-template: 3rem 1fr / 1fr;
+  overflow:hidden;
   height: 300px;
   transition: all .25s;
 }
@@ -33,6 +34,11 @@
 
 .card > img {
   object-fit: cover;
-  height: 85%;
-  width: 85%;
+  height: 15rem;
+  width: 15rem;
+}
+
+.card > h2 {
+  font-size: 1rem;
+  text-align: center;
 }
