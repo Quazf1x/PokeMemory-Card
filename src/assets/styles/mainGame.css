@@ -15,7 +15,7 @@
 }
 
 .card {
-  background-color: #ffffffb6;
+  background-color: #ffffff7b;
   border-radius: 2rem;
   cursor: pointer;
   color: black;
@@ -29,4 +29,10 @@
 
 .card:hover {
   transform: scale(.95);
+}
+
+.card > img {
+  object-fit: cover;
+  height: 85%;
+  width: 85%;
 }
