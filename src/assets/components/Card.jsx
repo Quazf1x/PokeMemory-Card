@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getPokemon } from "../../pokemonFetch";
 import loadingGif from '../img/loading.gif';
 
-function Card() {
+function Card({pokemonId}) {
   const [image, setImage] = useState(loadingGif);
   const [name, changeName] = useState('Loading...');
 
@@ -13,7 +13,7 @@ function Card() {
 
   useEffect(() => {
     async function setPokemonData() {
-      const data = await getPokemon(665);
+      const data = await getPokemon(pokemonId);
       changePokemonInfo(data.name, data.image);
     }
     setPokemonData();
