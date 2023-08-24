@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getPokemon } from "../../pokemonFetch";
 import loadingGif from '../img/loading.gif';
 
-function Card({pokemonId}) {
+function Card({ onClick, pokemonId }) {
   const [image, setImage] = useState(loadingGif);
   const [name, changeName] = useState('Loading...');
 
@@ -22,10 +22,10 @@ function Card({pokemonId}) {
       changePokemonInfo('Loading...', loadingGif);
     }
     
-  }, [])
+  }, [pokemonId])
 
   return (
-    <div className="card">
+    <div onClick={onClick} data-pokemonid={pokemonId} className="card">
       <h2>{name}</h2>
       <img src={image}></img>
     </div>
