@@ -1,9 +1,8 @@
 import Card from "./Card";
-import { generateRandomPokemon } from "../../pokemonFetch";
-function MainScreen({ onClick }) {
 
-  const pokemons = generateRandomPokemon(8);
-  const cards = pokemons.map(pokemon => {
+function MainScreen({ pokemonList, currentScore, onClick }) {
+
+  const cards = pokemonList.map(pokemon => {
     return (
       <div key={pokemon}>
       <Card onClick={onClick} pokemonId = {pokemon}/>
@@ -13,7 +12,7 @@ function MainScreen({ onClick }) {
 
   return (
     <div className="game-wrapper">
-      <h2>0/8</h2>
+      <h2>{currentScore}/8</h2>
       <div className="card-wrapper">
         {cards}
       </div>
