@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import Header from './assets/components/Header';
 import MainScreen from './assets/components/MainScreen';
-import { generateRandomPokemon } from "./pokemonFetch";
+import { generateRandomPokemon, shuffleArray } from "./pokemonFetch";
 
-const POKEMONS = generateRandomPokemon(8); //wrap in function later
+let pokemonList = generateRandomPokemon(8); //wrap in function later
 const clickedPokemon = [];
 
 function App() {
@@ -24,9 +24,9 @@ function App() {
     const pokeId = e.target.closest('.card').dataset.pokemonid;
     if(clickedPokemon.find(el => el == pokeId) == undefined) { //check if pokemon hasn't been clicked
       clickedPokemon.push(pokeId);
-      incrementScore();      
+      incrementScore();
+      shuffleArray(pokemonList);
     }
-      //also change card positions, will add later
     else {
       console.log(clickedPokemon, pokeId)
       alert('you lost!'); 
@@ -40,7 +40,7 @@ function App() {
   return (
     <>
      <Header currentScore={currentScore} currentHigh={currentHigh}/>
-      <MainScreen pokemonList={POKEMONS} currentScore={currentScore} onClick = {playRound}/>
+      <MainScreen pokemonList={pokemonList} currentScore={currentScore} onClick = {playRound}/>
     </>
   )
 }
