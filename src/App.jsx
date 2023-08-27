@@ -16,6 +16,10 @@ function App() {
     if(currentHigh == 8) alert('you won!');
   }
 
+  function changeGameState(newState) {
+    setGameState(newState);
+  }
+
   function incrementScore() {
     const newScore = currentScore + 1;
     setCurrentScore(newScore);
@@ -34,12 +38,16 @@ function App() {
     }
   }
 
+  function onGameStart() {
+    changeGameState('Game');
+  }
+
   useEffect(() => { //effect that checks for win(async)
     checkForWin();
   })
 
   const screen = gameState === 'Start' ? 
-  <StartScreen/> :
+  <StartScreen onSubmit={onGameStart}/> :
   <MainScreen pokemonList={pokemonList} currentScore={currentScore} onClick = {playRound}/>;
 
   return (
@@ -50,4 +58,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
