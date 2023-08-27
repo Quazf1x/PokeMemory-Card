@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import Header from './assets/components/Header';
 import MainScreen from './assets/components/MainScreen';
+import StartScreen from './assets/components/StartScreen';
 import { generateRandomPokemon, shuffleArray } from "./pokemonFetch";
 
 let pokemonList = generateRandomPokemon(8); //wrap in function later
 const clickedPokemon = [];
 
 function App() {
-  const [currentScore, changeCurrentScore] = useState(0);
-  const [currentHigh, changeCurrentHigh] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [currentHigh, setCurrentHigh] = useState(0);
+  const [gameState, setGameState] = useState('Start');
 
   function checkForWin() {
     if(currentHigh == 8) alert('you won!');
@@ -16,8 +18,8 @@ function App() {
 
   function incrementScore() {
     const newScore = currentScore + 1;
-    changeCurrentScore(newScore);
-    changeCurrentHigh(Math.max(newScore, currentHigh));
+    setCurrentScore(newScore);
+    setCurrentHigh(Math.max(newScore, currentHigh));
   }
 
   function playRound(e) {
@@ -28,7 +30,6 @@ function App() {
       shuffleArray(pokemonList);
     }
     else {
-      console.log(clickedPokemon, pokeId)
       alert('you lost!'); 
     }
   }
@@ -37,10 +38,14 @@ function App() {
     checkForWin();
   })
 
+  const screen = gameState === 'Start' ? 
+  <StartScreen/> :
+  <MainScreen pokemonList={pokemonList} currentScore={currentScore} onClick = {playRound}/>;
+
   return (
     <>
      <Header currentScore={currentScore} currentHigh={currentHigh}/>
-      <MainScreen pokemonList={pokemonList} currentScore={currentScore} onClick = {playRound}/>
+      {screen}
     </>
   )
 }

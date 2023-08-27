@@ -1,6 +1,8 @@
 :root {
+  --black: #000;
   --red: #bf362f;
   --white: #fff;
+  --darker-white: #ededed;
 }
 
 *, *::after, *::before {
@@ -9,8 +11,11 @@
   box-sizing: border-box;
 }
 
-html,body {
+html, body, button {
   font-family: 'Press Start 2P', cursive;
+}
+
+html,body {
   color: var(--white);
   height: 100svh;
 }
@@ -22,4 +27,12 @@ html,body {
   background-blend-mode: darken;
   background-attachment: fixed;
   min-height: 100%;
+}
+
+.screen-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
 }

@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './assets/styles/index.css'
 import './assets/styles/header.css'
 import './assets/styles/mainGame.css'
+import './assets/styles/startEndScreens.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

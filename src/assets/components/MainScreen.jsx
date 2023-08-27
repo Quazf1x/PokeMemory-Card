@@ -11,7 +11,7 @@ function MainScreen({ pokemonList, currentScore, onClick }) {
   })
 
   return (
-    <div className="game-wrapper">
+    <div id="game-wrapper" className="screen-wrapper">
       <h2>{currentScore}/8</h2>
       <div className="card-wrapper">
         {cards}

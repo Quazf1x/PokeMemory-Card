@@ -1,8 +1,4 @@
-.game-wrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+#game-wrapper {
   height: 90%;
 }
 
