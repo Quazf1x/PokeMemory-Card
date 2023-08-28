@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-function MainScreen({ pokemonList, currentScore, onClick }) {
+function MainScreen({ pokemonList, currentScore, maxCards, onClick }) {
 
   const cards = pokemonList.map(pokemon => {
     return (
@@ -12,7 +12,7 @@ function MainScreen({ pokemonList, currentScore, onClick }) {
 
   return (
     <div id="game-wrapper" className="screen-wrapper">
-      <h2>{currentScore}/8</h2>
+      <h2>{currentScore}/{maxCards}</h2>
       <div className="card-wrapper">
         {cards}
       </div>

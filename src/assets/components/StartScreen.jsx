@@ -3,7 +3,7 @@ function StartScreen({ onSubmit }) {
   function RadioButton({ name, labelText, defaultChecked }) {
     return(
       <label>
-        <input name={name} type='radio' defaultChecked={defaultChecked}/>
+        <input name={name} value={labelText} type='radio' defaultChecked={defaultChecked}/>
         <span className="arrow-right"></span>
         {labelText}
       </label>
