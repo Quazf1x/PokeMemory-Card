@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from './assets/components/Header';
 import MainScreen from './assets/components/MainScreen';
 import StartScreen from './assets/components/StartScreen';
+import EndScreen from './assets/components/endScreen';
 import { generateRandomPokemon, shuffleArray } from "./pokemonFetch";
 const clickedPokemon = [];
 
@@ -20,7 +21,7 @@ function App() {
   const [pokemonList, setPokemonList] = useState(0);
 
   function checkForWin() {
-    if(currentHigh == gameMaxCards) alert('you won!');
+    if(currentHigh == gameMaxCards) changeGameState('EndWin');
   }
 
   function changeGameState(newState) {
@@ -41,7 +42,7 @@ function App() {
       shuffleArray(pokemonList);
     }
     else {
-      alert('you lost!'); 
+      changeGameState('EndLoss')
     }
   }
 
@@ -73,13 +74,21 @@ function App() {
     changeGameState('Game');
   }
 
+  function onPlayAgain() {
+    changeGameState('Start');
+  }
+
   useEffect(() => { //effect that checks for win(async)
     checkForWin();
-  })
+  });
 
   const screen = gameState === 'Start' ? 
-  <StartScreen onSubmit={onGameStart}/> :
-  <MainScreen pokemonList={pokemonList} currentScore={currentScore} maxCards={gameMaxCards} onClick = {playRound}/>;
+  <StartScreen onSubmit={onGameStart}/> 
+  : gameState === 'Game' ?
+  <MainScreen pokemonList={pokemonList} currentScore={currentScore} maxCards={gameMaxCards} onClick = {playRound}/>
+  : gameState === 'EndWin' ? 
+  <EndScreen onClick={onPlayAgain} isWin={ true }/>
+  : <EndScreen onClick={onPlayAgain} isWin={ false }/>;
 
   return (
     <>

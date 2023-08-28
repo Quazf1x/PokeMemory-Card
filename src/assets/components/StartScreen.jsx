@@ -20,7 +20,7 @@ function StartScreen({ onSubmit }) {
             <RadioButton name='difficulty' labelText='Meduim' defaultChecked/>
             <RadioButton name='difficulty' labelText='Hard'/> 
           </div>
-          <button id="start-game-btn">Start game</button>
+          <button id='start-btn' className='start-end-btns'>Start game</button>
         </form>
       </div>
     </div>
