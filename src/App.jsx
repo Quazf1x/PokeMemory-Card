@@ -15,13 +15,12 @@ const difficulty = {
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentHigh, setCurrentHigh] = useState(0);
   const [gameState, setGameState] = useState('Start');
   const [gameMaxCards, setMaxCards] = useState(difficulty.Easy);
   const [pokemonList, setPokemonList] = useState(0);
 
   function checkForWin() {
-    if(currentHigh == gameMaxCards) changeGameState('EndWin');
+    if(currentScore == gameMaxCards) changeGameState('EndWin');
   }
 
   function changeGameState(newState) {
@@ -31,7 +30,6 @@ function App() {
   function incrementScore() {
     const newScore = currentScore + 1;
     setCurrentScore(newScore);
-    setCurrentHigh(Math.max(newScore, currentHigh));
   }
 
   function playRound(e) {
@@ -47,12 +45,14 @@ function App() {
   }
 
   function onGameStart(e) {
+    e.preventDefault();
+
     const formData = new FormData(e.target);
     let settingDifficulty;
     for (var [key, value] of formData.entries()) { 
       settingDifficulty = value;
     }
-    console.log(settingDifficulty)
+    
     switch(settingDifficulty) {
       case 'Easy':
         setMaxCards(difficulty.Easy);
@@ -75,6 +75,7 @@ function App() {
   }
 
   function onPlayAgain() {
+    setCurrentScore(0);
     changeGameState('Start');
   }
 
@@ -92,7 +93,7 @@ function App() {
 
   return (
     <>
-     <Header currentScore={currentScore} currentHigh={currentHigh}/>
+     <Header/>
       {screen}
     </>
   )
