@@ -13,7 +13,7 @@ header > h1 {
 
 .header-text-wrapper {
   display: flex;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .header-text-wrapper > p {

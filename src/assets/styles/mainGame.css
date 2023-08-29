@@ -19,13 +19,13 @@
   align-items: center;
   justify-items: center;
   grid-template: 3rem 1fr / 1fr;
-  overflow:hidden;
+  overflow: hidden;
   height: 300px;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 .card:hover {
-  transform: scale(.95);
+  transform: scale(0.95);
 }
 
 .card > img {
