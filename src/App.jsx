@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from './assets/components/Header';
 import MainScreen from './assets/components/MainScreen';
 import StartScreen from './assets/components/StartScreen';
-import EndScreen from './assets/components/endScreen';
+import EndScreen from './assets/components/EndScreen';
 import { generateRandomPokemon, shuffleArray } from "./pokemonFetch";
 const clickedPokemon = [];
 
@@ -52,7 +52,7 @@ function App() {
     for (var [key, value] of formData.entries()) { 
       settingDifficulty = value;
     }
-    
+
     switch(settingDifficulty) {
       case 'Easy':
         setMaxCards(difficulty.Easy);
