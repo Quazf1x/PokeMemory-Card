@@ -1,6 +1,6 @@
 function EndScreen({ onClick, isWin }) {
   const text = isWin ? "You won!" : "You lost :(";
-  const image = isWin ? "src/assets/img/win.gif" : "src/assets/img/loss.gif";
+  const image = isWin ? "../img/win.gif" : "../img/loss.gif";
 
   return (
     <div id="end-wrapper" className="screen-wrapper">
