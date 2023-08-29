@@ -1,6 +1,9 @@
+import imgWin from "../img/win.gif";
+import imgLoss from "../img/loss.gif";
+
 function EndScreen({ onClick, isWin }) {
   const text = isWin ? "You won!" : "You lost :(";
-  const image = isWin ? "../img/win.gif" : "../img/loss.gif";
+  const image = isWin ? imgWin : imgLoss;
 
   return (
     <div id="end-wrapper" className="screen-wrapper">

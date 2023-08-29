@@ -15,6 +15,7 @@
 
 #end-wrapper > .start-end-wrappers > img {
   height: 20rem;
+  max-width: 90%;
 }
 
 .start-end-wrappers {
